@@ -16,7 +16,7 @@ function App() {
 
   return (
     <div className="app">
-      <div className="leaderboard-container" ref={ref}>
+      <div className="leaderboard-container">
         <Leaderboard
           data={data}
         />
