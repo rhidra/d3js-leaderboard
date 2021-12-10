@@ -5,16 +5,13 @@ import { useEffect, useState, useCallback } from 'react';
 import useMeasure from 'react-use-measure';
 
 function App() {
-  // Leaderboard panel width
-  const [ref, {width: leaderboardWidth}] = useMeasure({debounce: 100});
-
   // Leaderboard data
   const [data, setData] = useState([]);
 
-  // Update the array
+  // Utility function to change the data in the leaderboard
   const refreshData = useCallback(() => getData().then(d => setData(d)), []);
 
-  // Fill the data array at the page load
+  // Fill the leaderboard at the page load
   useEffect(() => refreshData(), [refreshData]);
 
   return (
@@ -22,7 +19,6 @@ function App() {
       <div className="leaderboard-container" ref={ref}>
         <Leaderboard
           data={data}
-          width={leaderboardWidth}
         />
       </div>
 
